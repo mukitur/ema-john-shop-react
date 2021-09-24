@@ -4,4 +4,5 @@
 }
 .product-container{
     margin-left: 200px;
+    border-right: 1px solid gray;
 }

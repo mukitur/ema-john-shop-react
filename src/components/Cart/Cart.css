@@ -1,0 +1,12 @@
+.cart{
+    background-color: #fcfcfc;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid gray;
+}
+.order-summery-text{
+    text-align: center;
+    font-size: 20px;
+}
