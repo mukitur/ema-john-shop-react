@@ -10,7 +10,7 @@ const Cart = (props) => {
     const total = cart.reduce(totalReducer, 0);
 
     //shipping caclulate
-    const shipping = 20;
+    const shipping = total > 100 ? 20 : 0;
 
     //Calculate Tax
     const tax = (total + shipping) * 0.1;
@@ -22,10 +22,10 @@ const Cart = (props) => {
         <div className="cart">
             <h3 className="order-summery-text">Order Summery</h3>
             <p>Items Ordered:{props.cart.length}</p>
-            <h5>Total: {total}</h5>
-            <h5>Shipping Cost: {shipping}</h5>
-            <h5>Tax: {tax}</h5>
-            <h3>Grand Total: {grandTotal}</h3>
+            <h5>Total: {total.toFixed(2)}</h5>
+            <h5>Shipping Cost: {shipping.toFixed(2)}</h5>
+            <h5>Tax: {tax.toFixed(2)}</h5>
+            <h3>Grand Total: {grandTotal.toFixed(2)}</h3>
 
         </div>
     );

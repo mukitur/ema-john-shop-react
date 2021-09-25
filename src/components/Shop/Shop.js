@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
@@ -13,9 +14,27 @@ const Shop = () => {
             .then(data => setProducts(data))
     }, [])
 
+    //we stored data in local storage but , when refreshed it gone from cart, to solve the issure:
+    useEffect(() => {
+        const savedCart = getStoredCart();
+        const storedCart = [];
+        if (products.length) {
+            for (const key in savedCart) {
+                //console.log(key)
+                const addedProduct = products.find(product => product.key === key);
+                //console.log(key, addedProduct);
+                storedCart.push(addedProduct);
+            }
+            setCart(storedCart);
+        }
+    }, [products])
+
+
     const handleAddToCart = (product) => {
         const newCart = [...cart, product]
         setCart(newCart);
+        //Set data to local Storage
+        addToDb(product.key);
     }
 
     return (
