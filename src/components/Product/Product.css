@@ -1,11 +1,5 @@
-.search-container{
-    background-color: rgba(0, 0, 0, 0.85);
-    text-align: center;
-    line-height: 60px;
-}
-.search-container input{
-    width: 50%;
-    line-height: 30px;
+.rating-icon{
+    color: goldenrod;
 }
 
 .product-name{
